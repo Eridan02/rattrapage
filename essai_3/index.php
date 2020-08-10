@@ -1,0 +1,53 @@
+<?php
+
+    if (!empty($_FILES)) {
+
+        
+        print_r($_FILES);
+        $img = $_FILES['img'];
+        $ext = strtolower (substr($img['name'], -3));
+        $allow_ext = array("jpg", 'png', 'gif');
+
+        if (in_array($ext, $allow_ext)) {
+            move_uploaded_file($img['tmp_name'], "images/ ".$img['name']);
+        }
+        else
+        $erreur = "erreur";
+    }
+
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr"  lang="fr">
+    <head>
+        <title>Blog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+    <h1>Formulaire d'ajout du blog</h1>
+
+
+
+    <form method="post" action="index.php" enctype="multipart/form-data">
+    <div class="form-group col-sm-4">
+    <input type="file" class="form-control-file" id="img" name="img">
+    </div>
+    <div class="form-group col-sm-4">
+        <input type="submit" name="Envoyer"/>
+    </div>
+       
+    </form>
+
+
+
+<ul>
+    <li><a href="/rattrapage/rattrapage/essai_3/formulaire.php" target="_blank"> Retour à la page d'insertion </a></li>
+    <li><a href="/rattrapage/rattrapage/essai_3/gallerie.php" target="_blank"> Gallerie </a></li>
+</ul>
+
+
+</body>
+
+</html>
