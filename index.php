@@ -68,6 +68,9 @@
     </div>
     <div class="col-sm-1"></div>
 </div>
+    <script>
+      alert("bienvenue sur ce site! vous êtes sur la page de transfert d'images! seule les fichiers jpg, png et gif sont acceptés.");
+    </script>
 </body>
 
 </html>
